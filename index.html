@@ -21,7 +21,7 @@
       <a href="#at" class="pill pill-at">AT</a>
       <a href="#vs" class="pill pill-vs">AT vs IN</a>
       <a href="#game" class="pill pill-game">Гра</a>
-      <a href="#run" class="pill pill-run">Біжи!</a>
+      <a href="#place" class="pill pill-run">Постав героя</a>
     </nav>
     <label class="toggle" title="Сховати прийменники і перевірити себе">
       <input type="checkbox" id="quizMode">
@@ -77,17 +77,21 @@
         <div class="overlay" id="ov" hidden></div>
       </div>
     </section>
-    <section id="run" class="block">
+    <section id="place" class="block">
       <div class="block-head">
-        <span class="badge badge-run">Біжи!</span>
-        <p>Перебігай на доріжку з правильним прийменником</p>
+        <span class="badge badge-run">Постав героя</span>
+        <p>Прийменник відомий — покажи місце в сцені</p>
       </div>
-      <div class="arena run-arena glass" id="runArena" tabindex="-1">
-        <div class="hud"><span class="hud-score" id="runScore">0</span><span class="hud-streak" id="runStreak"></span><span class="hud-lives" id="runLives"></span></div>
-        <div class="rphrase" id="runPhrase"></div>
-        <div class="rtrack" id="runTrack"><div class="rhero" id="runHero"></div></div>
-        <div class="feedback" id="runFb" hidden></div>
-        <div class="overlay" id="runOv" hidden></div>
+      <div class="arena pl-arena glass" id="plArena" tabindex="-1">
+        <div class="hud"><span class="hud-score" id="plScore">0</span><span class="pl-scene-name" id="plSceneName"></span><span class="pl-prog" id="plProg"></span></div>
+        <div class="pl-task">
+          <div class="pl-dock" id="plDock" aria-label="Герой, якого треба поставити"></div>
+          <div class="pl-text" id="plText"></div>
+          <span class="pl-tip">перетягни героя або торкнись місця</span>
+        </div>
+        <div class="pl-scene" id="plScene"></div>
+        <div class="feedback" id="plFb" hidden></div>
+        <div class="overlay" id="plOv" hidden></div>
       </div>
     </section>
   </main>
@@ -98,6 +102,6 @@
   <script src="scenes.js"></script>
   <script src="app.js"></script>
   <script src="game.js"></script>
-  <script src="runner.js"></script>
+  <script src="place.js"></script>
 </body>
 </html>

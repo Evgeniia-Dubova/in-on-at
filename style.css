@@ -12,8 +12,8 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 /* смуги над і під сторінкою (відступи застосунку) — у кольорах верху й низу градієнта */
-html{background:linear-gradient(90deg,#a9cbff,#c4d3fb 60%,#d3dcfb) top/100% 50% no-repeat,#FFEDD5}
-body{margin:0;position:relative;display:flow-root;isolation:isolate;font-family:"Nunito",system-ui,sans-serif;color:var(--ink);background:var(--papaya);min-height:100vh}
+html{background:linear-gradient(#FFEDD5,#FFEDD5) bottom/100% 50% no-repeat,linear-gradient(90deg,#a9cbff,#c4d3fb 60%,#d3dcfb) top/100% 50% no-repeat;background-color:#b4d0ff}
+body{margin:0;position:relative;display:flow-root;isolation:isolate;font-family:"Nunito",system-ui,sans-serif;color:var(--ink);background:#b4d0ff;min-height:100vh}
 /* фон як на референсі: блакитний зверху → рожева пляма → кремовий низ */
 .bg{position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:

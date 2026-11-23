@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IN · ON · AT — тренажер</title>
+  <meta name="description" content="Наочні правила вживання прийменників in, on, at з прикладами.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <header class="top glass">
+    <a class="brand" href="#cheat">in<span>·</span>on<span>·</span>at</a>
+    <nav>
+      <a href="#cheat" class="pill pill-vs">Правила</a>
+      <a href="#in" class="pill pill-in">IN</a>
+      <a href="#on" class="pill pill-on">ON</a>
+      <a href="#at" class="pill pill-at">AT</a>
+      <a href="#vs" class="pill pill-vs">AT vs IN</a>
+      <a href="#game" class="pill pill-game">Гра</a>
+    </nav>
+    <label class="toggle" title="Сховати прийменники і перевірити себе">
+      <input type="checkbox" id="quizMode">
+      <span class="track"><span class="thumb"></span></span>
+      <span class="toggle-label">Перевір себе</span>
+    </label>
+  </header>
+
+  <main>
+    <section id="cheat" class="cheat-wrap">
+      <h2 class="cheat-title">Study <em class="t-in">IN</em>, <em class="t-on">ON</em> and <em class="t-at">AT</em></h2>
+      <div id="cheatTable" class="cheat glass"></div>
+    </section>
+
+    <section id="hero" class="hero">
+      <h1>Де саме? <em>IN</em>, <em>ON</em> чи <em>AT</em></h1>
+      <p class="lead">Одна картинка, щоб запам'ятати різницю:</p>
+      <div class="big3">
+        <figure class="glass big in">
+          <div class="cube"><i class="dot"></i></div>
+          <figcaption><b>IN</b> — всередині</figcaption>
+        </figure>
+        <figure class="glass big on">
+          <div class="cube"><i class="dot"></i></div>
+          <figcaption><b>ON</b> — на поверхні</figcaption>
+        </figure>
+        <figure class="glass big at">
+          <div class="cube"><i class="dot"></i></div>
+          <figcaption><b>AT</b> — у точці, поруч</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div id="rules"></div>
+
+    <section id="vs" class="block">
+      <div class="block-head">
+        <span class="badge badge-vs">AT vs IN</span>
+        <p>Одне й те саме місце, але різний сенс</p>
+      </div>
+      <div id="vsGrid" class="vs-grid"></div>
+    </section>
+    <section id="game" class="block">
+      <div class="block-head">
+        <span class="badge badge-game">Гра</span>
+        <p>Розсели героїв: кому належить фраза?</p>
+      </div>
+      <div class="arena glass" id="arena" tabindex="-1">
+        <div class="hud"><span class="hud-score" id="hudScore">0</span><span class="hud-streak" id="hudStreak"></span><span class="hud-lives" id="hudLives"></span></div>
+        <div class="lane" id="lane"></div>
+        <div class="feedback" id="fb" hidden></div>
+        <div class="homes" id="homes"></div>
+        <div class="overlay" id="ov" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Натисни <b>«Перевір себе»</b> вгорі — прийменники сховаються. Торкнись пропуску, щоб побачити відповідь.</footer>
+
+  <script src="icons.js"></script>
+  <script src="scenes.js"></script>
+  <script src="app.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

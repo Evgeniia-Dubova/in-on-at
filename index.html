@@ -21,6 +21,7 @@
       <a href="#at" class="pill pill-at">AT</a>
       <a href="#vs" class="pill pill-vs">AT vs IN</a>
       <a href="#game" class="pill pill-game">Гра</a>
+      <a href="#run" class="pill pill-run">Біжи!</a>
     </nav>
     <label class="toggle" title="Сховати прийменники і перевірити себе">
       <input type="checkbox" id="quizMode">
@@ -76,6 +77,19 @@
         <div class="overlay" id="ov" hidden></div>
       </div>
     </section>
+    <section id="run" class="block">
+      <div class="block-head">
+        <span class="badge badge-run">Біжи!</span>
+        <p>Перебігай на доріжку з правильним прийменником</p>
+      </div>
+      <div class="arena run-arena glass" id="runArena" tabindex="-1">
+        <div class="hud"><span class="hud-score" id="runScore">0</span><span class="hud-streak" id="runStreak"></span><span class="hud-lives" id="runLives"></span></div>
+        <div class="rphrase" id="runPhrase"></div>
+        <div class="rtrack" id="runTrack"><div class="rhero" id="runHero"></div></div>
+        <div class="feedback" id="runFb" hidden></div>
+        <div class="overlay" id="runOv" hidden></div>
+      </div>
+    </section>
   </main>
 
   <footer>Натисни <b>«Перевір себе»</b> вгорі — прийменники сховаються. Торкнись пропуску, щоб побачити відповідь.</footer>
@@ -84,5 +98,6 @@
   <script src="scenes.js"></script>
   <script src="app.js"></script>
   <script src="game.js"></script>
+  <script src="runner.js"></script>
 </body>
 </html>

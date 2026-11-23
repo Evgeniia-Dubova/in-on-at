@@ -66,6 +66,7 @@
     ["at", "home", "exc", 1], ["at", "work", "exc", 1], ["at", "the supermarket", "exc", 1],
   ].map(([a, p, r, gold]) => ({ a, p, rule: R[r], gold: !!gold }));
 
+  window.IOA_CARDS = CARDS; // спільні фрази для інших ігор
   const $ = (id) => document.getElementById(id);
   const arena = $("arena"), lane = $("lane"), fb = $("fb"), ov = $("ov");
   const hudScore = $("hudScore"), hudStreak = $("hudStreak"), hudLives = $("hudLives");

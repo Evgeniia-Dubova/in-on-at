@@ -28,14 +28,14 @@
         <path d="M30 170 l-14 -16 l-2 22 M80 170 l14 -16 l2 22" fill="${C.wood}"/>`,
       fg: () => `<rect x="22" y="205" width="66" height="10" fill="${C.wood}"/><path d="M22 205 l-12 -12 l0 14z M88 205 l12 -12 l0 14z" fill="${C.wood}"/>`,
       zones: [
-        { p: "in", n: "the box", ua: "у коробці", r: [16, 150, 80, 66], s: [55, 214, .72] },
-        { p: "on", n: "the shelf", ua: "на полиці", r: [18, 18, 94, 54], s: [55, 70, .66] },
-        { p: "at", n: "the window", ua: "біля вікна", r: [118, 122, 84, 93], s: [160, 214, .8] },
-        { p: "at", n: "the table", ua: "за столом", r: [204, 128, 36, 87], s: [222, 214, .8] },
-        { p: "on", n: "the table", ua: "на столі", r: [242, 108, 84, 60], s: [278, 165, .7] },
-        { p: "on", n: "the cupboard", ua: "на шафі", r: [330, 40, 56, 57], s: [358, 95, .66] },
-        { p: "in", n: "the cupboard", ua: "у шафі", r: [334, 99, 50, 112], s: [358, 207, .7] },
-        { p: "at", n: "the door", ua: "біля дверей", r: [398, 118, 39, 97], s: [418, 214, .8] },
+        { p: "in", n: "the box", ua: "у коробці", r: [16, 150, 80, 66], s: [55, 214, .72] , lb: [55, 234] },
+        { p: "on", n: "the shelf", ua: "на полиці", r: [18, 18, 94, 54], s: [55, 70, .66] , lb: [65, 98] },
+        { p: "at", n: "the window", ua: "біля вікна", r: [118, 122, 84, 93], s: [160, 214, .8] , lb: [160, 234] },
+        { p: "at", n: "the table", ua: "за столом", r: [204, 128, 36, 87], s: [222, 214, .8] , lb: [222, 254] },
+        { p: "on", n: "the table", ua: "на столі", r: [242, 108, 84, 60], s: [278, 165, .7] , lb: [278, 124] },
+        { p: "on", n: "the cupboard", ua: "на шафі", r: [330, 40, 56, 57], s: [358, 95, .66] , lb: [358, 54] },
+        { p: "in", n: "the cupboard", ua: "у шафі", r: [334, 99, 50, 112], s: [358, 207, .7] , lb: [358, 234] },
+        { p: "at", n: "the door", ua: "біля дверей", r: [398, 118, 39, 97], s: [418, 214, .8] , lb: [420, 254] },
       ],
     },
     {
@@ -58,11 +58,11 @@
         ${wheel(395, 201, 9)}${wheel(452, 201, 9)}`,
       fg: () => `<path d="M400 163 h53" stroke-width="1.6"/>`,
       zones: [
-        { p: "on", n: "the roof", ua: "на даху", r: [10, 34, 88, 58], s: [52, 90, .7] },
-        { p: "in", n: "the house", ua: "у будинку", r: [15, 99, 110, 106], s: [50, 152, .55, false] },
-        { p: "at", n: "the bus stop", ua: "на зупинці", r: [134, 98, 68, 107], s: [178, 205, .8] },
-        { p: "on", n: "the bus", ua: "в автобусі", r: [210, 108, 150, 92], s: [284, 172, .6] },
-        { p: "in", n: "the taxi", ua: "у таксі", r: [370, 124, 104, 80], s: [426, 163, .48, false] },
+        { p: "on", n: "the roof", ua: "на даху", r: [10, 34, 88, 58], s: [52, 90, .7] , lb: [52, 48] },
+        { p: "in", n: "the house", ua: "у будинку", r: [15, 99, 110, 106], s: [50, 152, .55, false] , lb: [50, 170] },
+        { p: "at", n: "the bus stop", ua: "на зупинці", r: [134, 98, 68, 107], s: [178, 205, .8] , lb: [178, 232] },
+        { p: "on", n: "the bus", ua: "в автобусі", r: [210, 108, 150, 92], s: [284, 172, .6] , lb: [284, 102] },
+        { p: "in", n: "the taxi", ua: "у таксі", r: [370, 124, 104, 80], s: [426, 163, .48, false] , lb: [426, 116] },
       ],
     },
   ];
@@ -80,7 +80,7 @@
     curScene = si;
     const sc = SCENES[si];
     sceneBox.innerHTML = `<svg class="ill pl-svg" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid meet" stroke="${L}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" fill="none">
-      ${sc.bg()}<g class="pl-placed"></g>${sc.fg()}
+      ${sc.bg()}<g class="pl-placed"></g>${sc.fg()}<g class="pl-labels"></g>
       ${sc.zones.map((z, k) => `<rect class="zhl" data-k="${k}" x="${z.r[0]}" y="${z.r[1]}" width="${z.r[2]}" height="${z.r[3]}" rx="10"/>`).join("")}
     </svg>`;
     svg = sceneBox.querySelector("svg");
@@ -156,6 +156,7 @@
     const [sx, sy, s, legs] = t.z.s;
     svg.querySelector(".pl-placed").insertAdjacentHTML("beforeend",
       `<g class="${t.z.p} placed">${B(sx, sy, t.z.p, { s, legs: legs !== false, arms: "wave" })}</g>`);
+    addLabel(t.z);
     dock.innerHTML = "";
     flash(`Так! <b class="w ${t.z.p}">${t.z.p}</b> ${t.z.n} — ${HINT[t.z.p]}`, "good");
     setTimeout(() => {
@@ -163,6 +164,26 @@
       st.i++;
       if (st.i >= st.tasks.length) over(); else showTask();
     }, 1200);
+  }
+
+  // підпис «де стоїть герой» прямо в сцені
+  function addLabel(z) {
+    const NS = "http://www.w3.org/2000/svg";
+    const g = document.createElementNS(NS, "g");
+    g.setAttribute("class", "pl-label " + z.p);
+    const tx = document.createElementNS(NS, "text");
+    tx.setAttribute("x", z.lb[0]); tx.setAttribute("y", z.lb[1] + 3.6);
+    tx.setAttribute("text-anchor", "middle");
+    tx.setAttribute("stroke", "none");
+    tx.innerHTML = `<tspan class="lp">${z.p}</tspan> ${z.n}`;
+    g.appendChild(tx);
+    svg.querySelector(".pl-labels").appendChild(g);
+    const bb = tx.getBBox();
+    const r = document.createElementNS(NS, "rect");
+    r.setAttribute("x", bb.x - 6); r.setAttribute("y", bb.y - 2.5);
+    r.setAttribute("width", bb.width + 12); r.setAttribute("height", bb.height + 5);
+    r.setAttribute("rx", (bb.height + 5) / 2);
+    g.insertBefore(r, tx);
   }
 
   function wrong(k, z, t) {

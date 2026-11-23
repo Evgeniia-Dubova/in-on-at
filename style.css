@@ -313,10 +313,16 @@ body.quiz .ex.solved .bd{animation:land .6s cubic-bezier(.3,1.6,.5,1)}
 .pl-svg .zhl.good{fill:rgba(63,174,110,.2);stroke:#3fae6e;stroke-dasharray:none}
 .pl-svg .zhl.bad{fill:rgba(255,107,107,.2);stroke:var(--pink);stroke-dasharray:none}
 .pl-svg .placed .bd{animation:land .6s cubic-bezier(.3,1.6,.5,1)}
+.pl-label{--c:var(--ink);animation:lbin .45s ease .25s both}
+.pl-label.in{--c:var(--in)}.pl-label.on{--c:var(--on)}.pl-label.at{--c:var(--at)}
+.pl-label rect{fill:rgba(255,255,255,.95);stroke:color-mix(in srgb,var(--c) 55%,transparent);stroke-width:1.4}
+.pl-label text{font-family:Nunito,system-ui,sans-serif;font-weight:800;font-size:10px;fill:var(--ink)}
+.pl-label .lp{font-weight:900;fill:color-mix(in srgb,var(--c) 85%,#2b1638)}
+@keyframes lbin{from{opacity:0;transform:translateY(4px)}}
 .pl-ghost{position:fixed;left:0;top:0;width:72px;height:76px;z-index:50;pointer-events:none;filter:drop-shadow(0 8px 10px rgba(60,40,90,.3))}
 .pl-ghost.in{--c:var(--in)}.pl-ghost.on{--c:var(--on)}.pl-ghost.at{--c:var(--at)}
 .pl-ghost svg{width:100%;height:100%}
-.pl-arena .feedback{top:auto;bottom:24px}
+.pl-arena .feedback{top:150px;bottom:auto}
 .feedback .w,.how .w{--c:var(--ink)}
 .how .w.in,.feedback .w.in{--c:var(--in)}.how .w.on,.feedback .w.on{--c:var(--on)}.how .w.at,.feedback .w.at{--c:var(--at)}
 @media (max-width:640px){
